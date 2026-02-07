@@ -4,18 +4,29 @@ const questionContainer = document.getElementById("question-container");
 const successContainer = document.getElementById("success-container");
 const body = document.body;
 
-// Move "No" button on hover/touch
-function moveButton() {
-  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-  const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+const messages = [
+  "Orappano?",
+  "Vani...??",
+  "Are you positive?",
+  "Vani avarkal...ente alle?",
+  "Ente ponnu vani...",
+  "Onnude onnu aloich nokkiye ne.. :)",
+  "If you say no, I will be really sad...",
+  "I will be very very very sad...",
+  "Ok fine, I will stop asking...",
+  "Ayyadaaa , say yes please! ❤️",
+];
 
-  noBtn.style.position = "absolute";
-  noBtn.style.left = `${x}px`;
-  noBtn.style.top = `${y}px`;
+let messageIndex = 0;
+
+function handleNoClick() {
+  noBtn.textContent = messages[messageIndex];
+  messageIndex = (messageIndex + 1) % messages.length;
+  const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+  yesBtn.style.fontSize = `${currentSize * 1.5}px`;
 }
 
-noBtn.addEventListener("mouseover", moveButton);
-noBtn.addEventListener("touchstart", moveButton); // For mobile
+noBtn.addEventListener("click", handleNoClick);
 
 // Handle "Yes" click
 yesBtn.addEventListener("click", () => {
