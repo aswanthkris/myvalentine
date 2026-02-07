@@ -28,8 +28,12 @@ noBtn.addEventListener("click", handleNoClick);
 
 // Handle "Yes" click
 yesBtn.addEventListener("click", () => {
-  questionContainer.classList.add("hidden");
+  questionContainer.style.display = "none";
   successContainer.classList.remove("hidden");
+
+  // Play music
+  const music = document.getElementById("success-music");
+  music.play().catch((error) => console.log("Audio play failed:", error));
 
   // Confetti explosion
   confetti({
