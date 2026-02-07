@@ -122,3 +122,21 @@ button {
     transform: translateY(-10px);
   }
 }
+
+/* Romantic Photo Frame */
+.couple-photo {
+  width: 300px;
+  max-width: 80%;
+  border: 15px solid white;
+  border-radius: 10px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(255, 77, 109, 0.4);
+  transform: rotate(-3deg);
+  transition: transform 0.3s ease;
+  margin-top: 20px;
+}
+
+.couple-photo:hover {
+  transform: rotate(0deg) scale(1.05);
+}
